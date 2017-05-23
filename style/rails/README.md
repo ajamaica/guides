@@ -1,61 +1,57 @@
 Rails
 =====
 
-* Avoid `member` and `collection` routes.
-* Use private instead of protected when defining controller methods.
-* Name date columns with `_on` suffixes.
-* Name datetime columns with `_at` suffixes.
-* Name time columns (referring to a time of day with no date) with `_time`
-  suffixes.
-* Name initializers for their gem name.
-* Order ActiveRecord associations alphabetically by association type, then
-  attribute name. [Example][order-associations].
-* Order ActiveRecord validations alphabetically by attribute name.
-* Order ActiveRecord associations above ActiveRecord validations.
-* Order controller contents: filters, public methods, private methods.
-* Order i18n translations alphabetically by key name.
-* Order model contents: constants, macros, public methods, private methods.
-* Put application-wide partials in the [`app/views/application`] directory.
-* Use `def self.method`, not the `scope :method` DSL.
-* Use the default `render 'partial'` syntax over `render partial: 'partial'`.
-* Use `link_to` for GET requests, and `button_to` for other HTTP verbs.
-* Use new-style `validates :name, presence: true` validations, and put all
-  validations for a given column together. [Example][validations].
+* Evitra rutas `member` y `collection`.
+* Usar privado en vaz d eprotegido cuando se definen métodos de controlador.
+* Nombrar las columnas con sufijos `_on`.
+* Nombrar columnas de fecha y hora con sufijos `_at`.
+* Nombrar columnas de tiempo (con referencia a una hora del día y no a una fecha) con el sufijo `_time`.
+* Nombrar los inicializadores con el nombre del gem.
+* Ordenar las asociaciones ActiveRecord alfabéticamente por tipo de asociación y después por tipo de atributo. [Ejemplo][order-associations].
+* Ordenar las validaciones ActiveRecord alfabéticamente y por nombre de atributo.
+* Ordenar asociaciones ActiveRecord sobre validaciones ActiveRecord.
+* Ordenar los contenidos de controlador: filtros, métodos públicos, métodos privados.
+* Ordenar traducciones i18n talfabéticamente y por nombre de llave.
+* Ordenar los contenidos del modelo: constantes, macros, métodos públicos, métodos privados.
+* Poner los parciales que cubren a toda la aplicación en el directorio [`app/views/application`].
+* Usar `def self.method`, ev vez de `scope :method` DSL.
+* Usar por defecto la sintaxis `render 'partial'` sobre `render partial: 'partial'`.
+* Usar `link_to` para peticiones tipo GET, y `button_to` para otras acciones HTTP.
+* Usar el nuevo estilo de validaciones `validates :name, presence: true` y ponerlas en una columna juntas. [Ejemplo][validations].
 
 [order-associations]: /style/rails/sample.rb#L2-L4
 [validations]: /style/rails/sample.rb#L6
 [`app/views/application`]: http://asciicasts.com/episodes/269-template-inheritance
 
-Migrations
+Migraciones
 ----------
 
-[Sample](migration.rb)
+[Ejemplo](migration.rb)
 
-* Set an empty string as the default constraint for non-required string and text
-  fields. [Example][default example].
-* Set an explicit [`on_delete` behavior for foreign keys][add_foreign_key].
+* Poner un string vacío como el constraint por defecto para campos de texto no obligatorios. [Ejemplo][default example].
+* Poner explícitamente [`on_delete` behavior for foreign keys][add_foreign_key].
 
 [default example]: migration.rb#L6
 [add_foreign_key]: http://api.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/SchemaStatements.html#method-i-add_foreign_key
 
-Routes
+Rutas
 ------
 
-* Avoid the `:except` option in routes.
-* Order resourceful routes alphabetically by name.
-* Use the `:only` option to explicitly state exposed routes.
+* Evitar `:except` para las rutas.
+* Ordenar rutas alfabéticamente por nombre.
+* Usar la opción `:only` para expresar rutas expuestas.
 
-Background Jobs
+Trabajos en Background
 ---------------
 
-* Define a `PRIORITY` constant at the top of delayed job classes.
-* Define two public methods: `self.enqueue` and `perform`.
-* Put delayed job classes in `app/jobs`.
+* Definir una constante de prioridad `PRIORITY`encima de las clases retrasadas.
+* Definir dos tipos de métodos: `self.enqueue` y `perform`.
+* Poner clases retrasadas en `app/jobs`.
 
 Email
 -----
 
-* Use the user's name in the `From` header and email in the `Reply-To` when
-  [delivering email on behalf of the app's users].
+* Usar en nombre del usuario en el header del `From` y el email en el `Reply-To` cuando
+  [se entregan correos en nombre de los usuarios de la aplicación].
 
-[delivering email on behalf of the app's users]: http://robots.thoughtbot.com/post/3215611590/recipe-delivering-email-on-behalf-of-users
+[se entregan correos en nombre de los usuarios de la aplicación]: http://robots.thoughtbot.com/post/3215611590/recipe-delivering-email-on-behalf-of-users
